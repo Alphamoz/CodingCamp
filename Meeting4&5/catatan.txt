@@ -1,0 +1,3 @@
+1. Kalau di saya, importnya bermasalah walaupun hasilnya sesuai. ada garis bawahnya. Sedikit diubah untuk kode importnya
+2. Lebih baik kalau tidak ditampilkan landmark connectionnya biar bagus hasilnya.
+3. Kalau ada pakai kacamata hasil tidak akurat (tapi okelah) 

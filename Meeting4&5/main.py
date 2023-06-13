@@ -2,10 +2,10 @@ import mediapipe as mp
 import numpy as np
 import cv2
 
-from tensorflow.compat.v2 import ConfigProto
-from tensorflow.compat.v1 import InteractiveSession
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image as img_keras
+from tensorflow._api.v2.compat.v1 import ConfigProto
+from tensorflow._api.v2.compat.v1 import InteractiveSession
+from keras.models import load_model
+import keras.utils as img_keras
 from collections import deque
 
 # Mediapipe initialization and configuration
@@ -21,7 +21,7 @@ writer = None
 config = ConfigProto()
 config.gpu_options.allow_growth = True
 session = InteractiveSession(config=config)
-model = load_model('models/_trained.hdf5', compile=False)
+model = load_model('model/_trained.hdf5', compile=False)
 Q = deque(maxlen=10)
 emotions = ("Angry", "Disgusted", "Feared", "Happy", "Sad", 
 "Surprise", "Neutral")
@@ -42,12 +42,13 @@ min_tracking_confidence=0.5) as face_mesh:
             for face_landmarks in results.multi_face_landmarks:
                 mp_drawing.draw_landmarks(
                 image=frame,
-                landmark_list=face_landmarks,
-                connections=mp_face_mesh.FACEMESH_CONTOURS,
+                landmark_list = 0,
+                connections=mp_face_mesh.FACEMESH_FACE_OVAL,
                 landmark_drawing_spec=drawing_spec,
                 connection_drawing_spec=drawing_spec)
-                h,w,_ = frame.shape
+                
                 # initializing roi
+                h,w,_ = frame.shape
                 xInit,yInit,xEnd,yEnd = w,h,0,0
                 for id, landmarkPos in enumerate(face_landmarks.landmark):
                     x,y = int(landmarkPos.x*w),int(landmarkPos.y*h)
