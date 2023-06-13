@@ -1,0 +1,4 @@
+1. lebih baik untuk penentuan jempolnya pakai angka aja... jangan pakai list.
+2. List tetap pakai untuk jari lain dan langsung aja looping dan pakai nilainya.
+3. optional sih ini, tambah kode supaya bisa kiri dan kanan.. kalau dari kode hanya tangan kanan saja
+4. ada materi error handling, tapi ngga pernah error kok! karena sudah dihandle dengan conditional untuk cek supaya ada tangannya.
